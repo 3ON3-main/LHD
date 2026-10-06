@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 ON 3 LEAGUE | Legacy Hockey Development</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Oswald & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 0.05em;
+        }
+        .hero-bg {
+            background-color: #030712;
+            border-bottom: 1px solid #1e293b;
+        }
+        .solid-card {
+            background-color: #0f172a;
+            border: 1px solid #1e293b;
+        }
+        .solid-card:hover {
+            border-color: #dc2626;
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dc2626;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 selection:bg-red-600 selection:text-white">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-50 bg-gray-950/95 backdrop-blur-md border-b border-gray-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-xl overflow-hidden border border-red-600 shadow-md group-hover:scale-105 transition-transform bg-gray-900 flex items-center justify-center">
+                        <img src="3on3logo.png" alt="3 ON 3 League Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="text-2xl font-heading font-extrabold tracking-wider text-red-600">3 ON 3 LEAGUE</span>
+                        <span class="block text-[10px] font-semibold text-gray-400 tracking-widest uppercase">Legacy Hockey Development</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-6 font-medium text-sm tracking-wide">
+                    <a href="#overview" class="text-gray-300 hover:text-red-500 transition-colors">Overview</a>
+                    <a href="#rules" class="text-gray-300 hover:text-red-500 transition-colors">3ON3 Rules</a>
+                    <a href="https://www.kungpowkingshockey.com/en/leagues" target="_blank" class="text-gray-300 hover:text-red-500 transition-colors flex items-center space-x-1"><span>Stats</span><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+                    <a href="#schedule" class="text-gray-300 hover:text-red-500 transition-colors">Schedule</a>
+                    <a href="#sponsors" class="text-gray-300 hover:text-red-500 transition-colors">Sponsors</a>
+                    <a href="#register" class="text-gray-300 hover:text-red-500 transition-colors">Register</a>
+                    <a href="#payment" class="text-red-500 font-semibold hover:text-red-400 transition-colors">Payment</a>
+                    <a href="#organizers" class="text-gray-300 hover:text-red-500 transition-colors">Organizers</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="#register" class="px-6 py-2.5 bg-red-600 hover:bg-red-700 text-white font-heading font-bold uppercase tracking-wider rounded-xl shadow-md transition-all">
+                        Join League
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-red-500 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-900 border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#overview" class="block py-2 text-gray-300 hover:text-red-500 font-medium">Overview</a>
+            <a href="#rules" class="block py-2 text-gray-300 hover:text-red-500 font-medium">3ON3 Rules</a>
+            <a href="https://www.kungpowkingshockey.com/en/leagues" target="_blank" class="block py-2 text-gray-300 hover:text-red-500 font-medium">Stats</a>
+            <a href="#schedule" class="block py-2 text-gray-300 hover:text-red-500 font-medium">Schedule</a>
+            <a href="#sponsors" class="block py-2 text-gray-300 hover:text-red-500 font-medium">Sponsors</a>
+            <a href="#register" class="block py-2 text-red-500 font-medium">Register</a>
+            <a href="#payment" class="block py-2 text-red-500 font-medium">Payment Info</a>
+            <a href="#organizers" class="block py-2 text-gray-300 hover:text-red-500 font-medium">Organizers</a>
+            <a href="#register" class="block text-center mt-3 py-3 bg-red-600 hover:bg-red-700 text-white font-heading font-bold uppercase tracking-wider rounded-xl">
+                Register Now
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative min-h-[85vh] flex items-center justify-center hero-bg overflow-hidden pt-12 pb-20 px-4">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
+
+        <div class="relative max-w-5xl mx-auto text-center z-10">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-red-950 border border-red-700 text-red-400 text-xs sm:text-sm font-semibold uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-bolt text-red-500"></i>
+                <span>Fast-Paced Adult Rookie 3ICE-Style Hockey in Hong Kong</span>
+            </div>
+            
+            <h1 class="text-5xl sm:text-7xl lg:text-8xl font-heading font-extrabold uppercase tracking-tight text-white mb-6 leading-none">
+                3 ON 3 <br>
+                <span class="text-red-600">LEAGUE</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-xl text-gray-300 mb-10 leading-relaxed font-light">
+                Overtime all the time! Fast-paced, minimal whistles, maximum speed. Modeled after the electrifying <span class="text-red-500 font-semibold">3ICE format</span>.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#register" class="w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-heading font-bold uppercase tracking-wider text-base rounded-xl shadow-md transition-all flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-user-plus text-lg"></i>
+                    <span>Register Player / Goalie</span>
+                </a>
+                <a href="#payment" class="w-full sm:w-auto px-8 py-4 bg-gray-900 hover:bg-gray-800 text-red-500 font-heading font-bold uppercase tracking-wider text-base rounded-xl border border-red-700 transition-all flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-credit-card text-lg"></i>
+                    <span>Pay Online (Stripe)</span>
+                </a>
+            </div>
+
+            <!-- Quick Info Bar -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="solid-card p-4 rounded-xl text-center">
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Skill Level</div>
+                    <div class="text-lg font-heading font-bold text-red-500 mt-1">Beginner to Intermediate</div>
+                </div>
+                <div class="solid-card p-4 rounded-xl text-center">
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Structure</div>
+                    <div class="text-lg font-heading font-bold text-red-500 mt-1">4 Teams (6+1 Roster)</div>
+                </div>
+                <div class="solid-card p-4 rounded-xl text-center">
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Player Fee</div>
+                    <div class="text-lg font-heading font-bold text-red-500 mt-1">1,800 HKD</div>
+                </div>
+                <div class="solid-card p-4 rounded-xl text-center">
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Goalie Fee</div>
+                    <div class="text-lg font-heading font-bold text-red-500 mt-1">900 HKD</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- SPONSORS --->
+    <section id="sponsors" class="py-12 bg-gray-900 border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-xs font-semibold uppercase tracking-widest text-red-500 block mb-8">Proudly Sponsored By</span>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center justify-center">
+                <!-- Sponsor 1: ONLY vodka -->
+                <div class="solid-card p-6 rounded-2xl flex flex-col items-center justify-center group hover:border-red-600 transition-colors">
+                    <div class="h-10 flex items-center justify-center">
+                        <svg class="h-6 w-auto text-white group-hover:text-red-500 transition-colors" viewBox="0 0 200 50" fill="currentColor">
+                            <text x="10" y="38" font-family="'Montserrat', sans-serif" font-weight="700" font-size="32" letter-spacing="4">O N L Y</text>
+                            <text x="175" y="20" font-family="'Montserrat', sans-serif" font-weight="600" font-size="12">™</text>
+                        </svg>
+                    </div>
+                    <div class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Vodka</div>
+                </div>
+                <!-- Sponsor 2: Legacy Hockey Development -->
+                <div class="solid-card p-6 rounded-2xl flex flex-col items-center justify-center group hover:border-red-600 transition-colors">
+                    <div class="h-10 flex items-center justify-center mb-1">
+                        <svg viewBox="0 0 100 80" class="h-9 w-auto">
+                            <path d="M15,20 L35,15 L75,25 L85,60 L45,65 Z" fill="#1e3a8a" />
+                            <path d="M25,25 L40,22 L65,30 L60,55 L35,52 Z" fill="#dc2626" />
+                            <ellipse cx="48" cy="38" rx="12" ry="7" fill="#1e293b" />
+                            <ellipse cx="48" cy="36" rx="12" ry="7" fill="#dc2626" />
+                            <path d="M20,70 L55,68 C62,68 65,60 62,55 L58,58 C60,62 57,65 50,65 L20,67 Z" fill="#dc2626" />
+                        </svg>
+                    </div>
+                    <span class="text-sm font-heading font-bold text-white text-center">Legacy Hockey</span>
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest">Development</span>
+                </div>
+                <!-- Sponsor 3: Kung Pow Kings Hockey -->
+                <div class="solid-card p-6 rounded-2xl flex flex-col items-center justify-center group hover:border-red-600 transition-colors">
+                    <div class="h-10 flex items-center justify-center mb-1">
+                        <svg viewBox="0 0 100 100" class="h-9 w-auto">
+                            <a href="https://www.kungpowkingshockey.com" target="_blank">
+                                <circle cx="50" cy="50" r="46" fill="#1c1917" stroke="#7f1d1d" stroke-width="4"/>
+                                <circle cx="50" cy="50" r="32" fill="#ffffff"/>
+                                <path d="M40,45 L60,45 L65,70 L35,70 Z" fill="#e2e8f0" stroke="#000" stroke-width="1.5"/>
+                                <path d="M37,45 L50,32 L63,45 Z" fill="#cbd5e1" stroke="#000" stroke-width="1.5"/>
+                                <line x1="45" y1="25" x2="43" y2="55" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+                                <line x1="55" y1="25" x2="52" y2="55" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="50" cy="58" r="6" fill="#dc2626"/>
+                            </a>
+                        </svg>
+                    </div>
+                    <span class="text-sm font-heading font-bold text-white text-center">
+                        <a href="https://www.kungpowkingshockey.com" target="_blank">Kung Pow Kings</a>
+                    </span>
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest">
+                        <a href="https://www.kungpowkingshockey.com" target="_blank">Hockey Club</a>
+                    </span>
+                </div>
+                <!-- Sponsor 4: Visionary Power -->
+                <div class="solid-card p-6 rounded-2xl flex flex-col items-center justify-center group hover:border-red-600 transition-colors">
+                    <div class="h-10 flex items-center justify-center mb-1">
+                        <svg viewBox="0 0 100 80" class="h-9 w-auto">
+                            <path d="M12,18 L32,60 L44,60 L57,18 L46,18 L38,48 L24,18 Z" fill="#1e40af" />
+                            <path d="M57,18 L57,55 L68,55 L68,18 Z" fill="#1e40af" />
+                            <path d="M68,18 L88,18 C95,18 97,25 92,30 C88,34 80,36 78,38 C75,41 78,48 84,48 L93,48 L88,55 L68,55 Z" fill="#1e40af" />
+                            <path d="M8,52 Q25,75 55,50 Q75,40 95,25 Q85,55 60,65 Q35,75 18,65 Z" fill="#dc2626" opacity="0.9" />
+                        </svg>
+                    </div>
+                    <span class="text-sm font-heading font-bold text-white text-center">Visionary Power</span>
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest">& Creations</span>
+                </div>
+                <!-- Sponsor 5: Speed+ -->
+                <div class="solid-card p-6 rounded-2xl flex flex-col items-center justify-center group hover:border-red-600 transition-colors col-span-2 md:col-span-1">
+                    <div class="w-12 h-12 rounded-xl bg-red-950 border border-red-700 flex items-center justify-center text-red-500 mb-2 group-hover:scale-110 transition-transform relative overflow-hidden">
+                        <svg viewBox="0 0 100 100" class="w-10 h-10">
+                            <circle cx="50" cy="50" r="42" fill="#dc2626" />
+                            <circle cx="50" cy="50" r="30" fill="#9ca3af" />
+                            <circle cx="50" cy="50" r="18" fill="#dc2626" />
+                            <path d="M15,55 L35,45 L85,45 L75,65 L25,65 Z" fill="#1e293b" />
+                            <text x="22" y="60" font-family="'Oswald', sans-serif" font-weight="900" font-size="24" fill="#ffffff" font-style="italic">SPEED+</text>
+                        </svg>
+                    </div>
+                    <span class="text-sm font-heading font-bold text-white text-center">Speed+</span>
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest">Performance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- LEAGUE INFORMATION --->
+    <section id="overview" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-red-500 font-semibold text-sm uppercase tracking-widest block mb-2">League Format & Schedule</span>
+            <h2 class="text-4xl sm:text-5xl font-heading font-bold uppercase tracking-tight text-white mb-4">Fast-Paced Structure</h2>
+            <p class="text-gray-300 text-sm sm:text-base">Designed for maximum touches, high scoring, and pure skating excitement.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Card 1: Game Format -->
+            <div class="solid-card p-8 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-red-950 border border-red-800 flex items-center justify-center text-red-500 text-xl mb-6">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold text-white mb-4">Game Format</h3>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-check text-red-500 mt-1"></i>
+                            <span><strong>Halve 1:</strong> 14 minutes</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-check text-red-500 mt-1"></i>
+                            <span><strong>Intermission:</strong> 1 minute</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-check text-red-500 mt-1"></i>
+                            <span><strong>Halve 2:</strong> 14 minutes</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-check text-red-500 mt-1"></i>
+                            <span><strong>Roster:</strong> Up to 6 skaters + 1 goalie per team</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 2: Schedule & Slots -->
+            <div id="schedule" class="solid-card p-8 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-red-950 border border-red-800 flex items-center justify-center text-red-500 text-xl mb-6">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold text-white mb-4">Match Schedule</h3>
+                    <p class="text-xs uppercase tracking-wider text-red-400 mb-3 font-semibold">Match Dates:</p>
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        <div class="p-3 bg-gray-900 border border-gray-800 rounded-xl text-center">
+                            <span class="block text-xs text-gray-400 uppercase">October</span>
+                            <span class="block font-heading font-bold text-white text-lg">Oct 20, 27</span>
+                            <span class="block text-xs text-gray-400 mt-1">9:30-11:30</span>
+                        </div>
+                        <div class="p-3 bg-gray-900 border border-gray-800 rounded-xl text-center">
+                            <span class="block text-xs text-gray-400 uppercase">November</span>
+                            <span class="block font-heading font-bold text-white text-lg">Nov 3, 10</span>
+                            <span class="block text-xs text-gray-400 mt-1">9:30-11:30</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-400">4 Teams of 6 players maximum • 4 Goalies total.</p>
+            </div>
+
+            <!-- Card 3: Pricing & Skill -->
+            <div class="solid-card p-8 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-red-950 border border-red-800 flex items-center justify-center text-red-500 text-xl mb-6">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold text-white mb-4">Pricing & Level</h3>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center justify-between p-3 bg-gray-900 border border-gray-800 rounded-xl">
+                            <span class="text-sm font-medium text-gray-300">Player Fee</span>
+                            <span class="font-heading font-bold text-red-500 text-lg">1,800 HKD</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-900 border border-gray-800 rounded-xl">
+                            <span class="text-sm font-medium text-gray-300">Goalie Fee</span>
+                            <span class="font-heading font-bold text-red-400 text-lg">900 HKD</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-400"><i class="fa-solid fa-star text-yellow-400 mr-1"></i> Skill Level: <strong>Beginner to Intermediate</strong></p>
+            </div>
+
+            <!-- Card 4: Location (Full Width Banner) -->
+            <div class="solid-card p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 lg:col-span-3">
+                <div class="flex items-start gap-4 flex-1">
+                    <div class="w-12 h-12 rounded-xl bg-red-950 border border-red-800 flex items-center justify-center text-red-500 text-xl shrink-0">
+                        <i class="fa-solid fa-map-pin"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-red-500 font-semibold">Location</span>
+                        <h3 class="text-2xl font-heading font-bold text-white mt-1">Sky Rink</h3>
+                        <p class="text-gray-400 mt-1">Dragon Centre</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-64 h-36 overflow-hidden rounded-xl shrink-0 border border-gray-800">
+                    <img src="skyrink.png" alt="Sky Rink at Dragon Centre" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RULES SECTION -->
+    <section id="rules" class="py-24 bg-gray-900 border-y border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-red-500 font-semibold text-sm uppercase tracking-widest block mb-2">Rulebook</span>
+                <h2 class="text-4xl sm:text-5xl font-heading font-bold uppercase tracking-tight text-white mb-4">What Is This "New Style"?</h2>
+                <p class="text-gray-300 text-sm sm:text-base">
+                    Based on the new 3 on 3, <span class="text-red-500 font-semibold">3ICE format</span>. Designed to simulate fast-paced, overtime hockey throughout the entire game with almost zero whistles and maximum speed!
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="solid-card rounded-2xl p-6 transition-all">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-red-950 text-red-500 border border-red-800 flex items-center justify-center font-heading font-bold text-lg flex-shrink-0">01</div>
+                        <div>
+                            <h3 class="text-xl font-heading font-bold text-white mb-2">Overtime All The Time (3-on-3 Full Time)</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">3 skaters plus a goalie for each team for the entire duration. No standard 5-on-5 lulls—pure open-ice skating and scoring opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="solid-card rounded-2xl p-6 transition-all">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-red-950 text-red-500 border border-red-800 flex items-center justify-center font-heading font-bold text-lg flex-shrink-0">02</div>
+                        <div>
+                            <h3 class="text-xl font-heading font-bold text-white mb-2">No Powerplays – Jailbreak Penalty Shots</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">Infractions result in a <strong>jailbreak penalty shot</strong>. Defending players start from the blue line while the shooter starts from the center dot.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- REGISTRATION FORM --->
+    <section id="register" class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="solid-card rounded-3xl p-8 sm:p-12 relative border border-red-700 shadow-xl text-center">
+            <div class="max-w-xl mx-auto mb-6">
+                <span class="text-red-500 font-semibold text-sm uppercase tracking-widest block mb-2">Secure Your Spot</span>
+                <h2 class="text-4xl font-heading font-bold uppercase text-white mb-4">Player & Goalie Registration</h2>
+                <p class="text-sm text-gray-300 mb-8">Click below to fill out our Google Form. Capacity is strictly limited to 4 teams of 6 players and 4 goalies total.</p>
+                <a href="https://forms.gle/cmweR5vuq1vpBsJN6" target="_blank" class="inline-flex items-center justify-center space-x-3 px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-heading font-bold uppercase tracking-wider text-lg rounded-xl shadow-md transition-all">
+                    <i class="fa-solid fa-file-lines text-xl"></i>
+                    <span>Open Registration Form</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+        
+    <!--- PAYMENT INFORMATION (Stripe Integration & Bank Transfer) --->
+    <section id="payment" class="py-24 bg-gray-900 border-y border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-red-500 font-semibold text-sm uppercase tracking-widest block mb-2">Secure Checkout</span>
+                <h2 class="text-4xl font-heading font-bold uppercase text-white mb-3">💳 Payment Options</h2>
+                <p class="text-sm text-gray-300">Pay securely online using Stripe, or complete a direct bank transfer / FPS.</p>
+            </div>
+
+            <!-- Stripe Payment Buttons Box -->
+            <div class="solid-card rounded-2xl p-8 sm:p-10 border border-red-700 shadow-xl text-center mb-8">
+                <h3 class="text-2xl font-heading font-bold text-white mb-4">Pay Online via Stripe</h3>
+                <p class="text-sm text-gray-300 mb-6">Instant checkout using credit card, Apple Pay, or Google Pay.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <!-- REPLACE '#' with your actual Stripe Payment Link for Players -->
+                    <a href="#" target="_blank" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-heading font-bold uppercase rounded-xl transition-all">
+                        Pay Player Fee (1,800 HKD)
+                    </a>
+                    <!-- REPLACE '#' with your actual Stripe Payment Link for Goalies -->
+                    <a href="#" target="_blank" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-heading font-bold uppercase rounded-xl transition-all">
+                        Pay Goalie Fee (900 HKD)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Traditional Bank Details -->
+            <div class="solid-card rounded-2xl p-8 sm:p-10 border border-gray-800 shadow-xl space-y-6">
+                <h3 class="text-xl font-heading font-bold text-white mb-2">Bank Transfer / FPS Details</h3>
+                <div class="flex items-center justify-between pb-4 border-b border-gray-800">
+                    <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Account Name (名稱)</span>
+                    <span class="text-base sm:text-lg font-bold text-white font-mono">Visionary Power & Creations Limited</span>
+                </div>
+                <div class="flex items-center justify-between pb-4 border-b border-gray-800">
+                    <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Bank (銀行)</span>
+                    <span class="text-base sm:text-lg font-bold text-white">OCBC Bank (華僑銀行)</span>
+                </div>
+                <div class="flex items-center justify-between pb-4 border-b border-gray-800">
+                    <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Account Number (帳號)</span>
+                    <div class="flex items-center space-x-3">
+                        <span id="acc-num" class="text-base sm:text-xl font-extrabold text-red-500 font-mono tracking-wider">035-802-721870831</span>
+                        <button onclick="copyToClipboard('035-802-721870831', this)" class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-red-400 rounded-lg text-xs font-bold transition-colors">
+                            <i class="fa-solid fa-copy mr-1"></i> Copy
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">FPS ID (轉数快)</span>
+                    <div class="flex items-center space-x-3">
+                        <span id="fps-id" class="text-base sm:text-xl font-extrabold text-red-400 font-mono tracking-wider">128508439</span>
+                        <button onclick="copyToClipboard('128508439', this)" class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-red-400 rounded-lg text-xs font-bold transition-colors">
+                            <i class="fa-solid fa-copy mr-1"></i> Copy
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- LEADERSHIP GROUP --->
+    <section id="organizers" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-red-500 font-semibold text-sm uppercase tracking-widest block mb-2">Leadership</span>
+            <h2 class="text-4xl sm:text-5xl font-heading font-bold uppercase text-white mb-3">League Organizers</h2>
+            <p class="text-gray-300 text-sm">Dedicated hockey enthusiasts bringing 3-on-3 action to the beginner and intermediate hockey community.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div class="solid-card rounded-2xl p-6 text-center group hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-24 h-24 mx-auto rounded-full bg-gray-900 border-2 border-red-700 flex items-center justify-center text-red-500 font-heading text-3xl font-bold mb-6 shadow-md overflow-hidden">
+                    <img src="AdonisKam.jpg" alt="Adonis Kam" width="150" height="150" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-heading font-bold text-white mb-1">Adonis Kam</h3>
+            </div>
+            <div class="solid-card rounded-2xl p-6 text-center group hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-24 h-24 mx-auto rounded-full bg-gray-900 border-2 border-red-700 flex items-center justify-center text-red-500 font-heading text-3xl font-bold mb-6 shadow-md overflow-hidden">
+                    <img src="NamHei.jpeg" alt="Yau Nam Hei" width="150" height="150" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-heading font-bold text-white mb-1">Yau Nam Hei</h3>
+            </div>
+            <div class="solid-card rounded-2xl p-6 text-center group hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-24 h-24 mx-auto rounded-full bg-gray-900 border-2 border-red-700 flex items-center justify-center text-red-500 font-heading text-3xl font-bold mb-6 shadow-md overflow-hidden">
+                    <img src="MikeLam.png" alt="Michael Lam" width="150" height="150" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-heading font-bold text-white mb
