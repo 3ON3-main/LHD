@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3 ON 3 LEAGUE | Legacy Hockey Development</title>
+    <title>Legacy Hockey Development | Professional Coaching & Training Hong Kong</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
@@ -68,16 +68,78 @@
                 <!-- Logo -->
                 <a href="#hero" class="flex items-center space-x-3 group">
                     <div class="w-12 h-12 rounded-xl overflow-hidden border border-red-600 shadow-md group-hover:scale-105 transition-transform bg-gray-900 flex items-center justify-center">
-                        <img src="3on3logo.png" alt="3 ON 3 League Logo" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1515703407324-5f753556cb85?w=100&auto=format&fit=crop&q=60'">
+                        <svg viewBox="0 0 100 80" class="w-8 h-8">
+                            <path d="M15,20 L35,15 L75,25 L85,60 L45,65 Z" fill="#1e3a8a" />
+                            <path d="M25,25 L40,22 L65,30 L60,55 L35,52 Z" fill="#dc2626" />
+                            <ellipse cx="48" cy="38" rx="12" ry="7" fill="#1e293b" />
+                            <ellipse cx="48" cy="36" rx="12" ry="7" fill="#dc2626" />
+                        </svg>
                     </div>
                     <div>
-                        <span class="text-2xl font-heading font-extrabold tracking-wider text-red-600">3 ON 3 LEAGUE</span>
-                        <span class="block text-[10px] font-semibold text-gray-400 tracking-widest uppercase">Legacy Hockey Development</span>
+                        <span class="text-xl font-heading font-extrabold tracking-wider text-white">LEGACY HOCKEY</span>
+                        <span class="block text-[10px] font-semibold text-red-500 tracking-widest uppercase">Development Hong Kong</span>
                     </div>
                 </a>
 
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden lg:flex items-center space-x-6 font-medium text-sm tracking-wide">
-                    <a href="#overview" class="text-gray-300 hover:text-red-500 transition-colors">Overview</a>
-                    <a href="#rules" class="text-gray-300 hover:text-red-500 transition-colors">3ON3 Rules</a>
-                    <a href="https://www.kungpowkingshockey.com/en/leagues" target="_blank" class="text
+                    <a href="#programs" class="text-gray-300 hover:text-red-500 transition-colors">Programs</a>
+                    <a href="#coaches" class="text-gray-300 hover:text-red-500 transition-colors">Coaching Team</a>
+                    <a href="#schedule" class="text-gray-300 hover:text-red-500 transition-colors">Training Venues</a>
+                    <a href="#sponsors" class="text-gray-300 hover:text-red-500 transition-colors">Partners</a>
+                    <a href="#contact" class="text-gray-300 hover:text-red-500 transition-colors">Contact</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="#contact" class="px-6 py-2.5 bg-red-600 hover:bg-red-700 text-white font-heading font-bold uppercase tracking-wider rounded-xl shadow-md transition-all">
+                        Book Training
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-red-500 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-900 border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#programs" class="block py-2 text-gray-300 hover:text-red-500 font-medium">Programs</a>
+            <a href="#coaches" class="block py-2 text-gray-300 hover:text-red-500 font-medium">Coaching Team</a>
+            <a href="#schedule" class="block py-2 text-gray-300 hover:text-red-500 font-medium">Training Venues</a>
+            <a href="#sponsors" class="block py-2 text-gray-300 hover:text-red-500 font-medium">Partners</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-red-500 font-medium">Contact</a>
+            <a href="#contact" class="block text-center mt-3 py-3 bg-red-600 hover:bg-red-700 text-white font-heading font-bold uppercase tracking-wider rounded-xl">
+                Book Training
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative min-h-[85vh] flex items-center justify-center hero-bg overflow-hidden pt-12 pb-20 px-4">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
+
+        <div class="relative max-w-5xl mx-auto text-center z-10">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-red-950 border border-red-700 text-red-400 text-xs sm:text-sm font-semibold uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-shield-halved text-red-500"></i>
+                <span>Elite Ice Hockey Instruction & Player Development</span>
+            </div>
+            
+            <h1 class="text-5xl sm:text-7xl lg:text-8xl font-heading font-extrabold uppercase tracking-tight text-white mb-6 leading-none">
+                ELEVATE <span class="text-red-600">YOUR GAME</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-xl text-gray-300 mb-10 leading-relaxed font-light">
+                Professional skill training, power skating, and elite coaching programs across Hong Kong's premier rinks including <span class="text-red-500 font-semibold">MegaBox Mega Ice</span>.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#programs" class="w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-heading font-bold uppercase tracking-wider text-base rounded-xl shadow-md transition-all flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-hockey-puck text-lg"></i>
+                    <span>Explore Programs</span>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-gray-900 hover:bg-gray-8
