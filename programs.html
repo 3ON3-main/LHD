@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs | Legacy Hockey Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { oswald: ['Oswald', 'sans-serif'], montserrat: ['Montserrat', 'sans-serif'] } } } }
+    </script>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #090d16; color: #f3f4f6; }
+        h1, h2, h3, .font-heading { font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
+        .solid-card { background-color: #131c31; border: 1px solid #1e3860; }
+        .solid-card:hover { border-color: #f97316; box-shadow: 0 0 20px rgba(249, 115, 22, 0.15); }
+    </style>
+</head>
+<body class="bg-[#090d16] text-gray-100">
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 bg-[#090d16]/95 backdrop-blur-md border-b border-blue-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-xl overflow-hidden border border-blue-500 bg-blue-950 flex items-center justify-center text-orange-500 font-bold font-heading">LHD</div>
+                <span class="text-xl font-heading font-extrabold text-white">LEGACY HOCKEY</span>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6 font-medium text-sm">
+                <a href="index.html" class="text-gray-300 hover:text-orange-400">Home</a>
+                <a href="programs.html" class="text-orange-500 font-semibold">Programs</a>
+                <a href="coaches.html" class="text-gray-300 hover:text-orange-400">Coaching Team</a>
+                <a href="contact.html" class="text-gray-300 hover:text-orange-400">Contact</a>
+            </nav>
+            <div class="hidden lg:block">
+                <a href="contact.html" class="px-6 py-2.5 bg-orange-600 hover:bg-orange-500 text-white font-heading font-bold uppercase rounded-xl">Book Training</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-orange-500 font-semibold text-sm uppercase tracking-widest block mb-2">Training Curriculums</span>
+            <h2 class="text-4xl sm:text-5xl font-heading font-bold uppercase text-white mb-4">Core Development Programs</h2>
+            <p class="text-gray-300 text-sm">Structured to build foundational skating, elite puck control, tactical awareness, and match readiness.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="solid-card p-8 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-heading font-bold text-white mb-4">Power Skating & Agility</h3>
+                    <p class="text-sm text-gray-300 mb-6">Explosive edge work, acceleration mechanics, transition balance, and multi-directional speed.</p>
+                </div>
+                <a href="contact.html" class="w-full py-3 bg-[#1a2642] hover:bg-orange-600 text-white font-heading font-bold uppercase text-center rounded-xl border border-blue-900 transition-all">Inquire Now</a>
+            </div>
+            <div class="solid-card p-8 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-heading font-bold text-white mb-4">Stickhandling & Shooting</h3>
+                    <p class="text-sm text-gray-300 mb-6">Mastering puck protection, deception, quick-release wrist shots, and scoring under pressure.</p>
+                </div>
+                <a href="contact.html" class="w-full py-3 bg-[#1a2642] hover:bg-orange-600 text-white font-heading font-bold uppercase text-center rounded-xl border border-blue-900 transition-all">Inquire Now</a>
+            </div>
+            <div class="solid-card p-8 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-heading font-bold text-white mb-4">Private & Team Camps</h3>
+                    <p class="text-sm text-gray-300 mb-6">Tailored 1-on-1 private coaching sessions and specialized seasonal clinics.</p>
+                </div>
+                <a href="contact.html" class="w-full py-3 bg-[#1a2642] hover:bg-orange-600 text-white font-heading font-bold uppercase text-center rounded-xl border border-blue-900 transition-all">Inquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#090d16] border-t border-blue-950 py-12 text-center text-xs text-gray-500">
+        <p>© 2026 Legacy Hockey Development. All rights reserved.</p>
+    </footer>
+</body>
+</html>
